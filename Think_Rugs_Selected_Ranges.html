@@ -1,0 +1,2492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Think Rugs — Selected Ranges 2025/26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & base ─────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:      #1C1917;
+  --sand:     #F5F0EB;
+  --warm:     #E8DDD2;
+  --gold:     #A07748;
+  --gold-lt:  #C4986A;
+  --muted:    #8A7E73;
+  --rule:     #DDD6CE;
+  --white:    #FFFFFF;
+  --sidebar:  260px;
+  --radius:   4px;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  display: flex;
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── Sidebar nav ──────────────────────────────────────────────────────── */
+.sidebar {
+  width: var(--sidebar);
+  flex-shrink: 0;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  background: var(--ink);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  z-index: 100;
+}
+.sidebar-logo {
+  padding: 28px 24px 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sidebar-logo .brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: block;
+}
+.sidebar-logo .sub {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-top: 3px;
+  display: block;
+}
+.nav-label {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  padding: 20px 24px 8px;
+}
+.nav-item {
+  display: block;
+  padding: 9px 24px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  border-left: 2px solid transparent;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-item:hover {
+  color: var(--white);
+  background: rgba(255,255,255,0.06);
+  border-left-color: var(--gold);
+}
+.nav-item.active {
+  color: var(--white);
+  border-left-color: var(--gold);
+  background: rgba(160,119,72,0.15);
+}
+.sidebar-footer {
+  margin-top: auto;
+  padding: 20px 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  line-height: 1.6;
+}
+
+/* ── Main content ─────────────────────────────────────────────────────── */
+.main {
+  margin-left: var(--sidebar);
+  flex: 1;
+  min-width: 0;
+}
+
+/* ── Cover / hero ─────────────────────────────────────────────────────── */
+.cover {
+  background: var(--ink);
+  padding: 80px 64px 72px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 60px,
+    rgba(255,255,255,0.012) 60px,
+    rgba(255,255,255,0.012) 61px
+  );
+}
+.cover-inner { position: relative; z-index: 1; }
+.cover-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: block;
+}
+.cover-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+.cover-title em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+.cover-rule {
+  width: 56px;
+  height: 1.5px;
+  background: var(--gold);
+  margin-bottom: 20px;
+}
+.cover-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  max-width: 420px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.cover-stats {
+  display: flex;
+  gap: 36px;
+}
+.stat-block .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--white);
+  line-height: 1;
+}
+.stat-block .lbl {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* ── Range section ────────────────────────────────────────────────────── */
+.range-section {
+  border-bottom: 1px solid var(--rule);
+  padding: 0 0 56px;
+}
+.range-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 44px 56px 28px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.range-eyebrow {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.range-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+.range-meta {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 4px;
+}
+.badge {
+  background: var(--warm);
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+.range-body {
+  padding: 36px 48px 0;
+}
+
+/* ── Design group ─────────────────────────────────────────────────────── */
+.design-group + .design-group {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+}
+.design-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 20px;
+  padding-left: 2px;
+}
+
+/* ── Colour grid ──────────────────────────────────────────────────────── */
+.colour-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* ── Colour card ──────────────────────────────────────────────────────── */
+.colour-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.colour-card:hover {
+  box-shadow: 0 8px 32px rgba(28,25,23,0.10);
+  transform: translateY(-2px);
+}
+.card-img {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--warm);
+  position: relative;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.colour-card:hover .card-img img {
+  transform: scale(1.04);
+}
+.card-img.no-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--muted);
+}
+.img-placeholder::before {
+  content: '';
+  width: 32px;
+  height: 32px;
+  border: 1.5px solid var(--rule);
+  border-radius: 50%;
+  display: block;
+}
+.img-placeholder span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0 12px;
+  line-height: 1.4;
+}
+.card-info {
+  padding: 14px 14px 16px;
+}
+.card-colour {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Price table ──────────────────────────────────────────────────────── */
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+.price-table thead th {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 0 5px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 400;
+}
+.price-table tbody tr:first-child td {
+  padding-top: 6px;
+}
+.price-table tbody tr + tr td {
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+.price-table td {
+  padding: 3px 0;
+  vertical-align: middle;
+}
+.price-table td.sz {
+  color: var(--muted);
+  font-size: 10.5px;
+}
+.price-table td.pr {
+  text-align: right;
+  font-weight: 500;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Print / scroll to top ────────────────────────────────────────────── */
+.back-top {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+.back-top:hover { color: var(--ink); }
+
+/* ── Active nav spy ───────────────────────────────────────────────────── */
+@media print {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .range-header { position: relative; }
+  .colour-card { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <span class="brand">Think Rugs</span>
+    <span class="sub">Trade Price List 2025/26</span>
+  </div>
+  <p class="nav-label">Ranges</p>
+  <a href="#range-0" class="nav-item">Portland</a>
+<a href="#range-1" class="nav-item">Windsor</a>
+<a href="#range-2" class="nav-item">Polar Plush</a>
+<a href="#range-3" class="nav-item">Lux Shaggy</a>
+<a href="#range-4" class="nav-item">Super Teddy</a>
+<a href="#range-5" class="nav-item">Olympia</a>
+<a href="#range-6" class="nav-item">Brooklyn 646</a>
+<a href="#range-7" class="nav-item">Vintage</a>
+<a href="#range-8" class="nav-item">Versailles</a>
+<a href="#range-9" class="nav-item">Zahra</a>
+<a href="#range-10" class="nav-item">Dubai</a>
+<a href="#range-11" class="nav-item">LLB</a>
+<a href="#range-12" class="nav-item">Clarke & Clarke</a>
+<a href="#range-13" class="nav-item">Harlequin</a>
+<a href="#range-14" class="nav-item">Catherine Lansfield</a>
+  <div class="sidebar-footer">
+    Prices shown are JDW trade prices ex. VAT.<br>
+    All prices in GBP &pound;.<br>
+    Confidential — trade use only.
+  </div>
+</nav>
+
+<main class="main">
+
+  <div class="cover">
+    <div class="cover-inner">
+      <span class="cover-eyebrow">Trade Price List</span>
+      <h1 class="cover-title">Selected<br><em>Ranges</em></h1>
+      <div class="cover-rule"></div>
+      <p class="cover-sub">Prices shown are JDW trade prices excluding VAT. All sizes in centimetres, prices in GBP.</p>
+      <div class="cover-stats">
+        <div class="stat-block">
+          <div class="num">15</div>
+          <div class="lbl">Ranges</div>
+        </div>
+        <div class="stat-block">
+          <div class="num">152</div>
+          <div class="lbl">Colour Ways</div>
+        </div>
+        <div class="stat-block">
+          <div class="num">2025<span style="font-size:18px;opacity:0.4">/26</span></div>
+          <div class="lbl">Season</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="range-section" id="range-0">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Portland</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">4 Colours</span>
+      <span class="badge">1 Design</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Portland Jute Border Beige_2.jpg" alt="Beige" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">050 x 080</td><td class="pr">£6.98</td></tr><tr><td class="sz">060 x 1000</td><td class="pr">£104.62</td></tr><tr><td class="sz">060 x 120</td><td class="pr">£12.60</td></tr><tr><td class="sz">060 x 600</td><td class="pr">£62.77</td></tr><tr><td class="sz">060 x 800</td><td class="pr">£83.70</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£60.30</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£84.83</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Portland Jute Border Green Stair Runner_1.jpg" alt="Charcoal" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Charcoal</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">050 x 080</td><td class="pr">£6.98</td></tr><tr><td class="sz">060 x 1000</td><td class="pr">£104.62</td></tr><tr><td class="sz">060 x 120</td><td class="pr">£12.60</td></tr><tr><td class="sz">060 x 600</td><td class="pr">£62.77</td></tr><tr><td class="sz">060 x 800</td><td class="pr">£83.70</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£60.30</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£84.83</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Portland Jute Border Green_2.jpg" alt="Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">050 x 080</td><td class="pr">£6.98</td></tr><tr><td class="sz">060 x 1000</td><td class="pr">£104.62</td></tr><tr><td class="sz">060 x 120</td><td class="pr">£12.60</td></tr><tr><td class="sz">060 x 600</td><td class="pr">£62.77</td></tr><tr><td class="sz">060 x 800</td><td class="pr">£83.70</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£60.30</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£84.83</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Portland Jute Border Navy_2.jpg" alt="Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">050 x 080</td><td class="pr">£6.98</td></tr><tr><td class="sz">060 x 1000</td><td class="pr">£104.62</td></tr><tr><td class="sz">060 x 120</td><td class="pr">£12.60</td></tr><tr><td class="sz">060 x 600</td><td class="pr">£62.77</td></tr><tr><td class="sz">060 x 800</td><td class="pr">£83.70</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£60.30</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£84.83</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-1">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Windsor</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">4 Colours</span>
+      <span class="badge">1 Design</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Windsor Wool Border Green_2.jpg" alt="Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">120 x 170</td><td class="pr">£38.25</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£62.55</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Windsor Wool Border Grey_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">120 x 170</td><td class="pr">£38.25</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£62.55</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Windsor Wool Border Natural_2.jpg" alt="Natural" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Natural</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">120 x 170</td><td class="pr">£38.25</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£62.55</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Windsor Wool Border Terracotta_2.jpg" alt="Terracotta" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Terracotta</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">120 x 170</td><td class="pr">£38.25</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£62.55</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-2">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Polar Plush</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">8 Colours</span>
+      <span class="badge">1 Design</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush Beige_2.jpg" alt="Beige" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush Grey_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush Ivory_2.jpg" alt="Ivory" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Ivory</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush Light Grey_2.jpg" alt="Light Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Light Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush Navy_2.jpg" alt="Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush Olive Green_2.jpg" alt="Olive Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Olive Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush Rose_2.jpg" alt="Rose" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Rose</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Polar Plush White.Grey_2.jpg" alt="White/Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">White/Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£27.45</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£45.45</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£77.40</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£139.50</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-3">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Lux Shaggy</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">8 Colours</span>
+      <span class="badge">1 Design</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Blush_2.jpg" alt="Blush" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blush</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Charcoal_2.jpg" alt="Charcoal" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Charcoal</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Cream_2.jpg" alt="Cream" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Cream</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Dark Green_2.jpg" alt="Dark Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Dark Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Navy_2.jpg" alt="Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Silver_2.jpg" alt="Silver" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Silver</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Walnut_2.jpg" alt="Walnut" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Walnut</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Lux Shaggy Yellow_2.jpg" alt="Yellow" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Yellow</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£11.47</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£19.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£32.85</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£59.35</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-4">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Super Teddy</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">30 Colours</span>
+      <span class="badge">3 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">Super Teddy</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Beige_2.jpg" alt="Beige" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Black_2.jpg" alt="Black" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Black</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Grey_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Ivory_2.jpg" alt="Ivory" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Ivory</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Jewel Green_2.jpg" alt="Jewel Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Jewel Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Mink_2.jpg" alt="Mink" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mink</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Mustard_2.jpg" alt="Mustard" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mustard</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Navy_2.jpg" alt="Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Rose_2.jpg" alt="Rose" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Rose</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Silver_2.jpg" alt="Silver" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Silver</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 120</td><td class="pr">£24.75</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£41.85</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£71.55</td></tr><tr><td class="sz">150 x 230</td><td class="pr">£129.15</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Double Sheepskin</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Beige Double Sheepskin_2.jpg" alt="Beige" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Black Double Sheepskin_2.jpg" alt="Black" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Black</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Grey Double Sheepskin_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Ivory Double Sheepskin_2.jpg" alt="Ivory" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Ivory</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Jewel Green Double Sheepskin_2.jpg" alt="Jewel Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Jewel Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Mink Double Sheepskin_2.jpg" alt="Mink" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mink</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Mustard Double Sheepskin_2.jpg" alt="Mustard" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mustard</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Navy Double Sheepskin_2.jpg" alt="Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Rose Double Sheepskin_2.jpg" alt="Rose" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Rose</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Silver Double Sheepskin_2.jpg" alt="Silver" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Silver</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 180</td><td class="pr">£36.45</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Single Sheepskin</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Beige Single Sheepskin_2.jpg" alt="Beige" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Black Single Sheepskin_2.jpg" alt="Black" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Black</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Grey Single Sheepskin_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Ivory Single Sheepskin_2.jpg" alt="Ivory" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Ivory</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Jewel Green Single Sheepskin_2.jpg" alt="Jewel Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Jewel Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Mink Single Sheepskin_2.jpg" alt="Mink" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mink</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Mustard Single Sheepskin_2.jpg" alt="Mustard" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mustard</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Navy Single Sheepskin_2.jpg" alt="Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Rose Single Sheepskin_2.jpg" alt="Rose" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Rose</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Super Teddy Silver Single Sheepskin_2.jpg" alt="Silver" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Silver</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 090</td><td class="pr">£18.00</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-5">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Olympia</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">12 Colours</span>
+      <span class="badge">2 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">2239</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia 2239 Beige.Brown_2.jpg" alt="Beige/Brown" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Brown</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia 2239 Black.White_2.jpg" alt="Black/White" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Black/White</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia 2239 Grey.Navy_2.jpg" alt="Grey/Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia 2239 Grey.Pink_2.jpg" alt="Grey/Pink" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Pink</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia 2239 Grey.Red_2.jpg" alt="Grey/Red" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Red</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia 2239 Grey.Yellow_2.jpg" alt="Grey/Yellow" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Yellow</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">GR224</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia GR224 Beige.Brown_2.jpg" alt="Beige/Brown" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Brown</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia GR224 Black.White_2.jpg" alt="Black/White" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Black/White</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia GR224 Grey.Navy_2.jpg" alt="Grey/Navy" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Navy</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia GR224 Grey.Pink_2.jpg" alt="Grey/Pink" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Pink</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia GR224 Grey.Red_2.jpg" alt="Grey/Red" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Red</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Olympia GR224 Grey.Yellow_2.jpg" alt="Grey/Yellow" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey/Yellow</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.00</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£61.88</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-6">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Brooklyn 646</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">7 Colours</span>
+      <span class="badge">1 Design</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Brooklyn 646 Beige.Blue_2.jpg" alt="Beige/Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">60 x 230</td><td class="pr">£25.43</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£37.58</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£65.03</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Brooklyn 646 Beige.Brown_2.jpg" alt="Beige/Brown" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Brown</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">60 x 230</td><td class="pr">£25.43</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£37.58</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£65.03</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Brooklyn 646 Beige.Green_2.jpg" alt="Beige/Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">60 x 230</td><td class="pr">£25.43</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£37.58</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£65.03</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Brooklyn 646 Beige.Purple_2.jpg" alt="Beige/Purple" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Purple</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">60 x 230</td><td class="pr">£25.43</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£37.58</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£65.03</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Brooklyn 646 Beige.Yellow_2.jpg" alt="Beige/Yellow" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Yellow</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">60 x 230</td><td class="pr">£25.43</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£37.58</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£65.03</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Brooklyn 646 Blue.Grey_2.jpg" alt="Blue/Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue/Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">60 x 230</td><td class="pr">£25.43</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£37.58</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£65.03</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Brooklyn 646 Grey_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">60 x 230</td><td class="pr">£25.43</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£37.58</td></tr><tr><td class="sz">160 x 220</td><td class="pr">£65.03</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-7">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Vintage</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">13 Colours</span>
+      <span class="badge">3 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">35013</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35013 Blue_2.jpg" alt="Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£nan</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£nan</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£nan</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35013 Blue.Terracotta_2.jpg" alt="Blue/Terracotta" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue/Terracotta</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£nan</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£nan</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£nan</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35013 Green_2.jpg" alt="Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£nan</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£nan</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£nan</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35013 Grey_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£nan</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£nan</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£nan</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35013 Terracotta_2.jpg" alt="Terracotta" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Terracotta</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£nan</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£nan</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£nan</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£nan</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£nan</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">35018</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35018 Blue_2.jpg" alt="Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35018 Green_2.jpg" alt="Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35018 Grey_2.jpg" alt="Grey" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35018 Terracotta_2.jpg" alt="Terracotta" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Terracotta</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">35027</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35027 Beige_2.jpg" alt="Beige" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35027 Blue_2.jpg" alt="Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35027 Green_2.jpg" alt="Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Vintage 35027 Terracotta_2.jpg" alt="Terracotta" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Terracotta</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">060 x 230</td><td class="pr">£21.38</td></tr><tr><td class="sz">080 x 150</td><td class="pr">£18.68</td></tr><tr><td class="sz">080 x 300</td><td class="pr">£37.35</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£31.73</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£57.15</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£90.23</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-8">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Versailles</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">10 Colours</span>
+      <span class="badge">4 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">H1373</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1373 Beige.Blue_2.jpg" alt="Beige/Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1373 Black.Blue_2.jpg" alt="Black/Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Black/Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">H1423</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1423 Beige.Blue_2.jpg" alt="Beige/Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1423 Beige.Green_2.jpg" alt="Beige/Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1423 Dark.Blue_2.jpg" alt="Dark/Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Dark/Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">H1424</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1424 Beige.Blue_2.jpg" alt="Beige/Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1424 Dark Blue_2.jpg" alt="Dark Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Dark Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">H1425</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1425 Beige.Blue_2.jpg" alt="Beige/Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Beige/Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1425 Dark Blue_2.jpg" alt="Dark" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Dark</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">122 x 170</td><td class="pr">£22.05</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£37.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£52.65</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Versailles H1425 Dark Blue_2.jpg" alt="Dark Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Dark Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£14.98</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-9">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Zahra</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">8 Colours</span>
+      <span class="badge">1 Design</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Blue_2.jpg" alt="Blue" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Blue.Beige_2.jpg" alt="Blue/Beige" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue/Beige</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Blue.Red_2.jpg" alt="Blue/Red" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue/Red</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Cream_2.jpg" alt="Cream" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Cream</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Green_2.jpg" alt="Green" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Green.Pink_2.jpg" alt="Green/Pink" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green/Pink</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Pink_2.jpg" alt="Pink" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Pink</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Zahra Washable S0063 Terracotta_2.jpg" alt="Terracotta" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Terracotta</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">061 x 230</td><td class="pr">£18.45</td></tr><tr><td class="sz">122 x 170</td><td class="pr">£27.45</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£46.35</td></tr><tr><td class="sz">180 x 270</td><td class="pr">£65.25</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-10">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Dubai</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">3 Colours</span>
+      <span class="badge">3 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">62096</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Dubai 62096 Red_2.jpg" alt="Red" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Red</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 300</td><td class="pr">£42.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.45</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£65.92</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£103.72</td></tr><tr><td class="sz">240 x 340</td><td class="pr">£144.00</td></tr><tr><td class="sz">280 x 380</td><td class="pr">£187.65</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">62098</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Dubai 62098 Red_2.jpg" alt="Red" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Red</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 300</td><td class="pr">£42.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.45</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£65.92</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£103.72</td></tr><tr><td class="sz">240 x 340</td><td class="pr">£144.00</td></tr><tr><td class="sz">280 x 380</td><td class="pr">£187.65</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">62101</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Dubai 62101 Red_2.jpg" alt="Red" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Red</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 300</td><td class="pr">£42.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£36.45</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£65.92</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£103.72</td></tr><tr><td class="sz">240 x 340</td><td class="pr">£144.00</td></tr><tr><td class="sz">280 x 380</td><td class="pr">£187.65</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-11">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">LLB</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">8 Colours</span>
+      <span class="badge">3 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">Cotswold Fantasia</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£24.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£60.75</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£92.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£24.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£60.75</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£92.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">White</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£24.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£60.75</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£92.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Yellow</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£24.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£60.75</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£92.25</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Damask</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/LLB - Damask Bronze Rug_2.jpg" alt="Bronze" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Bronze</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">120 x 170</td><td class="pr">£37.35</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£103.50</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/LLB - Damask Pearl Rug_2.jpg" alt="Pearl" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Pearl</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">120 x 170</td><td class="pr">£37.35</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">200 x 290</td><td class="pr">£103.50</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Hedgerovia </h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Green</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£24.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£60.75</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£92.25</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Teal</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£24.75</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£60.75</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£92.25</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-12">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Clarke & Clarke</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">15 Colours</span>
+      <span class="badge">4 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">Fiore</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Heather</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Rose Teal</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Passiflora</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blush</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Forest</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mineral</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mulberry</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Noir</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Peaches & Cream</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Tahiti</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Forest & Rouge</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Fuchsia</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Spring</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Teal & Rouge</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Toucan</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Antique</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blush</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Sky</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-13">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Harlequin</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">11 Colours</span>
+      <span class="badge">3 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">Air</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Golden Light</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Sky Blue</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Demoiselle</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Fern</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Indigo</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Mineral</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Taupe</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Florent</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blush</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Fern</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Saffron</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Sailcloth</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Stone</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">61 x 230</td><td class="pr">£25.65</td></tr><tr><td class="sz">76 x 150</td><td class="pr">£21.15</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£40.50</td></tr><tr><td class="sz">152 x 230</td><td class="pr">£67.50</td></tr><tr><td class="sz">185 x 290</td><td class="pr">£105.75</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+<section class="range-section" id="range-14">
+  <div class="range-header">
+    <div class="range-title-wrap">
+      <span class="range-eyebrow">Selected Range</span>
+      <h2 class="range-title">Catherine Lansfield</h2>
+    </div>
+    <div class="range-meta">
+      <span class="badge">11 Colours</span>
+      <span class="badge">3 Designs</span>
+    </div>
+  </div>
+  <div class="range-body">
+    <div class="design-group">
+  <h3 class="design-name">Cosy Diamond</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Branded/Cosy Diamond Cream_2.jpg" alt="Cream" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Cream</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£20.84</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.33</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£63.90</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Branded/Cosy Diamond Natural_2.jpg" alt="Natural" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Natural</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£20.84</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.33</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£63.90</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Branded/Cosy Diamond Silver_2.jpg" alt="Silver" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Silver</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£20.84</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.33</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£63.90</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Larsson Geo</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Blue/Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">80 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£64.12</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Lilac/Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">80 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£64.12</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Ochre/Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">80 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£64.12</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Rose/Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">80 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£64.12</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <div class="img-placeholder"><span>Image coming soon</span></div>
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Sage Green/Grey</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">80 x 150</td><td class="pr">£20.93</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.55</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£64.12</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+<div class="design-group">
+  <h3 class="design-name">Retro Circles</h3>
+  <div class="colour-grid"><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Branded/Retro Circles Cream_2.jpg" alt="Cream" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Cream</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£20.84</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.33</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£63.90</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Branded/Retro Circles Natural_2.jpg" alt="Natural" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Natural</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£20.84</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.33</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£63.90</td></tr></tbody>
+    </table>
+  </div>
+</div><div class="colour-card">
+  <div class="card-img">
+    <img src="https://thinkrugsimages.blob.core.windows.net/images/Branded/Retro Circles Silver_2.jpg" alt="Silver" loading="lazy" onerror="this.parentElement.classList.add('no-img')">
+  </div>
+  <div class="card-info">
+    <p class="card-colour">Silver</p>
+    <table class="price-table">
+      <thead><tr><th>Size</th><th>Trade Price</th></tr></thead>
+      <tbody><tr><td class="sz">080 x 150</td><td class="pr">£20.84</td></tr><tr><td class="sz">120 x 170</td><td class="pr">£35.33</td></tr><tr><td class="sz">160 x 230</td><td class="pr">£63.90</td></tr></tbody>
+    </table>
+  </div>
+</div></div>
+</div>
+  </div>
+</section>
+
+  <a class="back-top" href="#top">↑ Back to top</a>
+
+</main>
+
+<script>
+// Nav spy — highlight current range in sidebar
+const sections = document.querySelectorAll('.range-section');
+const navItems = document.querySelectorAll('.nav-item');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(n => n.classList.remove('active'));
+      const id = entry.target.getAttribute('id');
+      const active = document.querySelector(`.nav-item[href="#${id}"]`);
+      if (active) {
+        active.classList.add('active');
+        active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      }
+    }
+  });
+}, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
