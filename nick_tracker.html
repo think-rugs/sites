@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Nick's 12-Week Strength Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-2: #232734;
+    --surface-3: #2c3040;
+    --border: #333849;
+    --text: #e8eaf0;
+    --text-dim: #8b90a0;
+    --text-muted: #5c6070;
+    --accent-1: #f0c040;
+    --accent-1-dim: #f0c04025;
+    --accent-2: #40d0a0;
+    --accent-2-dim: #40d0a020;
+    --accent-3: #e06070;
+    --accent-4: #6080f0;
+    --accent-4-dim: #6080f020;
+    --complete: #40d0a0;
+    --complete-dim: #40d0a015;
+    --warmup: #f0c04018;
+    --workset: #e0607018;
+    --superset-warm: #40d0a010;
+    --superset-work: #40d0a01a;
+    --acc-warm: #6080f010;
+    --acc-work: #6080f01a;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px;
+    padding-top: 160px;
+  }
+
+  /* Timer bar */
+  .timer-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: #12141c;
+    padding: 10px 20px; display: flex; align-items: center;
+    justify-content: center; gap: 14px;
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    will-change: transform;
+  }
+  .timer-display {
+    font-family: 'DM Sans', sans-serif; font-size: 1.8rem; font-weight: 700;
+    color: var(--accent-1); min-width: 110px; text-align: center; letter-spacing: 1px;
+  }
+  .timer-display.running { animation: pulse-glow 2s ease-in-out infinite; }
+  @keyframes pulse-glow {
+    0%, 100% { text-shadow: 0 0 8px rgba(240,192,64,0.3); }
+    50% { text-shadow: 0 0 16px rgba(240,192,64,0.6); }
+  }
+  .timer-btn {
+    padding: 8px 18px; border: 1px solid var(--border); background: var(--surface);
+    color: var(--text-dim); border-radius: var(--radius-sm); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; transition: all 0.2s;
+  }
+  .timer-btn:hover { background: var(--surface-2); color: var(--text); }
+  .timer-btn.start { border-color: var(--accent-2); color: var(--accent-2); }
+  .timer-btn.start:hover { background: var(--accent-2); color: #0f1117; }
+  .timer-btn.pause { border-color: var(--accent-1); color: var(--accent-1); }
+  .timer-btn.pause:hover { background: var(--accent-1); color: #0f1117; }
+  .timer-btn.reset-timer { border-color: var(--accent-3); color: var(--accent-3); }
+  .timer-btn.reset-timer:hover { background: var(--accent-3); color: #fff; }
+
+  /* Exercise dropdown bar */
+  .exercise-bar {
+    position: fixed; top: 54px; left: 0; right: 0; z-index: 999;
+    background: #12141c; border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 8px 12px; display: flex; flex-direction: column; gap: 6px;
+    align-items: center;
+    will-change: transform;
+  }
+  .ex-row {
+    display: flex; align-items: center; gap: 8px; width: 100%;
+    max-width: 700px;
+  }
+  .exercise-bar label {
+    font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-muted); white-space: nowrap;
+    min-width: 34px; flex-shrink: 0;
+  }
+  .exercise-bar label.label-next { color: var(--accent-4); opacity: 0.7; }
+  .exercise-select {
+    flex: 1; min-width: 0; max-width: 400px; padding: 8px 12px;
+    border: 1px solid var(--border); background: var(--surface-2);
+    color: var(--text); border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500;
+    cursor: pointer; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 5l3 3 3-3' stroke='%238b90a0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 10px center;
+    padding-right: 30px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .exercise-select:focus { outline: none; border-color: var(--accent-1); }
+  .exercise-select:disabled { opacity: 0.5; cursor: not-allowed; }
+  .exercise-select option { background: var(--surface-2); color: var(--text); }
+  .exercise-select.next-select { border-color: var(--accent-4-dim); }
+  .exercise-select.next-select:focus { border-color: var(--accent-4); }
+
+  .ex-counter {
+    font-size: 0.68rem; color: var(--text-muted); white-space: nowrap; flex-shrink: 0;
+  }
+  .next-row { display: none; }
+  .next-row.visible { display: flex; }
+
+  /* Header */
+  .header { text-align: center; padding: 20px 20px 30px; }
+  .header h1 {
+    font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-3));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  .header p { color: var(--text-dim); margin-top: 6px; font-size: 0.95rem; }
+  .progress-bar-container {
+    max-width: 500px; margin: 20px auto 0;
+    background: var(--surface); border-radius: 20px; height: 10px;
+    overflow: hidden; border: 1px solid var(--border);
+  }
+  .progress-bar-fill {
+    height: 100%; background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    border-radius: 20px; transition: width 0.5s ease;
+  }
+  .progress-label { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 6px; }
+
+  .nav { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin: 30px auto 10px; max-width: 900px; }
+  .week-btn {
+    padding: 8px 14px; border: 1px solid var(--border); background: var(--surface);
+    color: var(--text-dim); border-radius: var(--radius-sm); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 500;
+    transition: all 0.2s; position: relative;
+  }
+  .week-btn:hover { background: var(--surface-2); color: var(--text); }
+  .week-btn.active { background: var(--accent-1-dim); border-color: var(--accent-1); color: var(--accent-1); }
+  .week-btn.has-data::after {
+    content: ''; position: absolute; top: 4px; right: 4px;
+    width: 6px; height: 6px; background: var(--accent-2); border-radius: 50%;
+  }
+  .week-btn.all-complete { background: var(--complete-dim); border-color: var(--complete); color: var(--complete); }
+
+  .day-tabs { display: flex; gap: 6px; justify-content: center; margin: 20px auto; max-width: 900px; }
+  .day-tab {
+    flex: 1; max-width: 210px; padding: 14px 10px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text-dim); border-radius: var(--radius);
+    cursor: pointer; font-family: 'DM Sans', sans-serif; font-size: 0.8rem;
+    font-weight: 600; text-align: center; transition: all 0.2s; line-height: 1.3;
+  }
+  .day-tab span { display: block; font-size: 0.7rem; font-weight: 400; color: var(--text-muted); margin-top: 3px; }
+  .day-tab:hover { background: var(--surface-2); }
+  .day-tab.active { border-color: var(--accent-4); background: var(--accent-4-dim); color: var(--accent-4); }
+  .day-tab.active span { color: var(--accent-4); opacity: 0.7; }
+  .day-tab .check { font-size: 0.7rem; color: var(--complete); margin-top: 4px; display: none; }
+  .day-tab.day-complete .check { display: block; }
+
+  .workout-container { max-width: 900px; margin: 0 auto; padding-bottom: 60px; }
+  .section-label {
+    font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1.5px; color: var(--text-muted); margin: 28px 0 10px; padding-left: 4px;
+  }
+
+  /* Exercise card */
+  .exercise-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden; margin-bottom: 10px;
+  }
+  .exercise-card.ex-done { opacity: 0.5; }
+  .exercise-card.ex-active { border-color: var(--accent-1); }
+  .exercise-header {
+    padding: 14px 20px; display: flex; align-items: center; justify-content: space-between;
+  }
+  .exercise-header h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: #fff; }
+  .exercise-header .badges { display: flex; gap: 8px; align-items: center; flex-shrink: 0; }
+  .exercise-header .badge {
+    font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .badge-main { background: rgba(224,96,112,0.3); color: var(--accent-3); }
+  .badge-accessory { background: rgba(96,128,240,0.3); color: var(--accent-4); }
+  .badge-superset { background: rgba(64,208,160,0.3); color: var(--accent-2); }
+  .badge-time { background: rgba(240,192,64,0.15); color: var(--accent-1); }
+  .badge-done { background: rgba(64,208,160,0.2); color: var(--complete); }
+  .badge-current { background: rgba(240,192,64,0.2); color: var(--accent-1); }
+
+  .header-main { background: linear-gradient(135deg, #c04060, #a03050); }
+  .header-acc { background: var(--surface-2); }
+  .header-super { background: linear-gradient(135deg, #206848, #185038); }
+
+  .col-headers {
+    display: grid; grid-template-columns: 100px 1fr 1fr 74px 90px;
+    gap: 8px; padding: 6px 20px;
+    background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border);
+  }
+  .col-headers span {
+    font-size: 0.6rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-muted); text-align: center;
+  }
+  .col-headers span:first-child { text-align: left; }
+
+  .set-row {
+    display: grid; grid-template-columns: 100px 1fr 1fr 74px 90px;
+    gap: 8px; padding: 9px 20px; align-items: center;
+    border-bottom: 1px solid var(--border); transition: all 0.3s;
+  }
+  .set-row:last-child { border-bottom: none; }
+  .set-row.warmup-row { background: var(--warmup); }
+  .set-row.work-row { background: var(--workset); }
+  .set-row.acc-build { background: var(--acc-warm); }
+  .set-row.acc-work { background: var(--acc-work); }
+  .set-row.super-build { background: var(--superset-warm); }
+  .set-row.super-work { background: var(--superset-work); }
+  .set-row.completed { background: var(--complete-dim) !important; }
+  .set-row.active-set {
+    outline: 2px solid var(--accent-1); outline-offset: -2px;
+    background: rgba(240,192,64,0.12) !important; position: relative;
+  }
+  .set-row.active-set::before {
+    content: '▸ NOW'; position: absolute; left: -2px; top: 50%;
+    transform: translateY(-50%) translateX(-100%);
+    font-size: 0.55rem; font-weight: 700; color: var(--accent-1);
+    letter-spacing: 0.5px; padding: 2px 6px;
+    background: rgba(240,192,64,0.15); border-radius: 4px 0 0 4px;
+  }
+  .set-row.active-set.completed { outline-color: var(--complete); }
+
+  .set-label { font-size: 0.78rem; font-weight: 500; color: var(--text-dim); }
+  .set-label .target-reps {
+    display: block; font-weight: 700; color: var(--accent-1);
+    font-size: 0.72rem; margin-top: 2px;
+  }
+  .interval-tag {
+    font-size: 0.72rem; color: var(--accent-1); text-align: center; font-weight: 600;
+    background: rgba(240,192,64,0.1); padding: 5px 6px; border-radius: 4px; letter-spacing: 0.3px;
+  }
+  .prev-week { font-size: 0.68rem; color: var(--text-muted); text-align: center; line-height: 1.3; }
+  .prev-week .pw-val { color: var(--text-dim); font-weight: 500; }
+  .prev-week .pw-none { color: var(--text-muted); opacity: 0.4; font-style: italic; }
+
+  .buffer-row {
+    padding: 8px 20px; display: flex; align-items: center; justify-content: center; gap: 8px;
+    background: rgba(255,255,255,0.02); border-top: 1px dashed var(--border);
+    font-size: 0.7rem; color: var(--text-muted);
+  }
+  .buffer-row .buffer-label {
+    background: rgba(240,192,64,0.08); color: var(--accent-1);
+    padding: 3px 10px; border-radius: 10px; font-weight: 600;
+    font-size: 0.65rem; letter-spacing: 0.5px;
+  }
+
+  .set-row input {
+    width: 100%; padding: 8px 10px; border: 1px solid var(--border);
+    background: var(--surface-3); color: var(--text); border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif; font-size: 16px; text-align: center;
+    transition: border-color 0.2s;
+  }
+  .set-row input:focus { outline: none; border-color: var(--accent-4); }
+  .set-row input::placeholder { color: var(--text-muted); font-size: 0.75rem; }
+  .set-row.completed input { border-color: rgba(64,208,160,0.3); }
+
+  .exercise-notes {
+    padding: 10px 20px; border-top: 1px solid var(--border);
+    background: rgba(255,255,255,0.01);
+  }
+  .exercise-notes textarea {
+    width: 100%; padding: 8px 10px; border: 1px solid var(--border);
+    background: var(--surface-3); color: var(--text-dim); border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif; font-size: 16px; resize: vertical;
+    min-height: 36px; max-height: 120px; line-height: 1.4;
+  }
+  .exercise-notes textarea:focus { outline: none; border-color: var(--accent-4); color: var(--text); }
+  .exercise-notes textarea::placeholder { color: var(--text-muted); font-size: 0.75rem; }
+
+  .video-toggle {
+    padding: 8px 20px; display: flex; align-items: center; gap: 8px;
+    cursor: pointer; border-top: 1px solid var(--border);
+    background: rgba(255,255,255,0.01); transition: background 0.2s;
+    user-select: none;
+  }
+  .video-toggle:hover { background: rgba(255,255,255,0.03); }
+  .video-toggle .vt-icon {
+    font-size: 0.7rem; color: var(--accent-3); transition: transform 0.2s;
+  }
+  .video-toggle.open .vt-icon { transform: rotate(90deg); }
+  .video-toggle .vt-label {
+    font-size: 0.72rem; font-weight: 600; color: var(--text-muted);
+    text-transform: uppercase; letter-spacing: 0.8px;
+  }
+  .video-toggle .vt-edit {
+    margin-left: auto; font-size: 0.6rem; color: var(--text-muted);
+    opacity: 0.5; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .video-body {
+    display: none; padding: 12px 20px; border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .video-body.open { display: block; }
+  .video-body .video-wrapper {
+    position: relative; width: 100%;
+    border-radius: var(--radius-sm); overflow: hidden; background: #000;
+    cursor: pointer; display: block; text-decoration: none;
+  }
+  .video-body .video-wrapper img {
+    width: 100%; display: block; opacity: 0.75; transition: opacity 0.2s;
+  }
+  .video-body .video-wrapper:hover img { opacity: 1; }
+  .video-body .video-wrapper .play-btn {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px; height: 42px; background: rgba(224,96,112,0.9);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  }
+  .video-body .video-wrapper .play-btn::after {
+    content: ''; width: 0; height: 0;
+    border-left: 16px solid #fff; border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent; margin-left: 3px;
+  }
+  .video-body .no-video {
+    text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.78rem;
+  }
+  .video-url-row {
+    display: flex; gap: 8px; margin-top: 10px; align-items: center;
+  }
+  .video-url-row input {
+    flex: 1; min-width: 0; padding: 6px 10px; border: 1px solid var(--border);
+    background: var(--surface-3); color: var(--text-dim); border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif; font-size: 16px;
+  }
+  .video-url-row input:focus { outline: none; border-color: var(--accent-4); }
+  .video-url-row input::placeholder { color: var(--text-muted); font-size: 0.7rem; }
+  .video-url-row button {
+    padding: 6px 12px; border: 1px solid var(--accent-2); background: transparent;
+    color: var(--accent-2); border-radius: var(--radius-sm); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600;
+    white-space: nowrap; transition: all 0.2s;
+  }
+  .video-url-row button:hover { background: var(--accent-2); color: #0f1117; }
+  .prev-notes {
+    font-size: 0.78rem; color: var(--text-dim); padding: 10px 20px;
+    background: rgba(96,128,240,0.06);
+    border-bottom: 1px solid var(--border); line-height: 1.5;
+  }
+  .prev-notes-label {
+    font-size: 0.6rem; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-muted); margin-bottom: 3px;
+  }
+
+  .note-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 14px 20px; font-size: 0.82rem; color: var(--text-dim); line-height: 1.6;
+  }
+  .note-card strong { color: var(--text); font-weight: 600; }
+
+  .timeline { display: flex; margin: 20px 0 4px; position: relative; }
+  .timeline-block { height: 10px; border-right: 1px solid var(--bg); }
+  .timeline-block:last-child { border-right: none; }
+  .timeline-block:first-child { border-radius: 5px 0 0 5px; }
+  .timeline-block:last-child { border-radius: 0 5px 5px 0; }
+  .timeline-block.main { background: var(--accent-3); }
+  .timeline-block.accessory { background: var(--accent-4); }
+  .timeline-block.superset { background: var(--accent-2); }
+  .timeline-ticks { position: relative; height: 16px; margin-top: 2px; }
+  .timeline-ticks span {
+    position: absolute; font-size: 0.58rem; color: var(--text-muted);
+    opacity: 0.6; transform: translateX(-50%);
+  }
+  .timeline-ticks span:first-child { transform: translateX(0); }
+  .timeline-ticks span:last-child { transform: translateX(-100%); }
+
+  .interval-key {
+    display: flex; gap: 20px; align-items: center; justify-content: center;
+    margin: 10px 0 0; font-size: 0.68rem; color: var(--text-muted); flex-wrap: wrap;
+  }
+  .interval-key .ik-item { display: flex; align-items: center; gap: 5px; }
+  .interval-key .ik-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+  .reset-row { text-align: center; margin-top: 40px; display: flex; gap: 12px; justify-content: center; }
+  .reset-btn {
+    padding: 10px 24px; background: transparent; border: 1px solid var(--accent-3);
+    color: var(--accent-3); border-radius: var(--radius-sm); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; transition: all 0.2s;
+  }
+  .reset-btn:hover { background: var(--accent-3); color: #fff; }
+  .reset-order-btn {
+    padding: 10px 24px; background: transparent; border: 1px solid var(--border);
+    color: var(--text-muted); border-radius: var(--radius-sm); cursor: pointer;
+    font-family: 'DM Sans', sans-serif; font-size: 0.82rem; font-weight: 600; transition: all 0.2s;
+  }
+  .reset-order-btn:hover { border-color: var(--text-dim); color: var(--text-dim); }
+
+  @media (max-width: 600px) {
+    body { padding-top: 145px; }
+    .header h1 { font-size: 1.7rem; }
+    .set-row, .col-headers { grid-template-columns: 72px 1fr 1fr 48px 70px; gap: 4px; padding: 8px 10px; }
+    .col-headers span { font-size: 0.5rem; }
+    .day-tab { padding: 10px 6px; font-size: 0.72rem; }
+    .nav { gap: 4px; }
+    .week-btn { padding: 6px 10px; font-size: 0.75rem; }
+    .exercise-header { padding: 10px 14px; flex-wrap: wrap; gap: 6px; }
+    .exercise-header h3 { font-size: 0.92rem; }
+    .interval-tag { font-size: 0.6rem; padding: 4px 3px; }
+    .prev-week { font-size: 0.58rem; }
+    .buffer-row { padding: 6px 12px; font-size: 0.65rem; }
+    .timer-bar { gap: 8px; padding: 8px 12px; }
+    .timer-display { font-size: 1.4rem; min-width: 85px; }
+    .timer-btn { padding: 6px 12px; font-size: 0.72rem; }
+    .exercise-bar { padding: 6px 10px; gap: 4px; top: 46px; }
+    .exercise-bar label { font-size: 0.6rem; min-width: 30px; }
+    .exercise-select { font-size: 16px; padding: 6px 8px; padding-right: 26px; }
+    .ex-counter { font-size: 0.6rem; }
+    .set-row.active-set::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="timer-bar">
+  <div class="timer-display" id="timerDisplay">0:00</div>
+  <button class="timer-btn start" id="timerStart" onclick="startTimer()">Start</button>
+  <button class="timer-btn reset-timer" onclick="resetTimerFn()">Reset</button>
+</div>
+
+<div class="exercise-bar" id="exerciseBar">
+  <div class="ex-row">
+    <label>Now</label>
+    <select class="exercise-select" id="exerciseSelect" onchange="onExerciseSelect()"></select>
+    <div class="ex-counter" id="exCounter"></div>
+  </div>
+  <div class="ex-row next-row" id="nextRow">
+    <label class="label-next">Next</label>
+    <select class="exercise-select next-select" id="nextSelect" onchange="onNextSelect()"></select>
+  </div>
+</div>
+
+<div class="header">
+  <h1>Nick's Tracker</h1>
+  <p>12-Week Program · 5 Days</p>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+  </div>
+  <div class="progress-label" id="progressLabel">0 / 60 workouts completed</div>
+</div>
+
+<div class="nav" id="weekNav"></div>
+<div class="day-tabs" id="dayTabs"></div>
+<div class="workout-container" id="workoutContent"></div>
+
+<script>
+// --- TIMER ---
+let timerInterval = null, timerSeconds = 0, timerRunning = false, lastHighlightedIdx = -1;
+let exerciseBoundaries = []; // populated by renderWorkout
+
+function formatTimer(sec) {
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return `${m}:${s < 10 ? '0' + s : s}`;
+}
+function startTimer() {
+  const btn = document.getElementById('timerStart');
+  if (timerRunning) {
+    clearInterval(timerInterval); timerRunning = false;
+    btn.textContent = 'Resume'; btn.className = 'timer-btn start';
+    document.getElementById('timerDisplay').classList.remove('running');
+  } else {
+    timerRunning = true; btn.textContent = 'Pause'; btn.className = 'timer-btn pause';
+    document.getElementById('timerDisplay').classList.add('running');
+    timerInterval = setInterval(() => {
+      timerSeconds++;
+      document.getElementById('timerDisplay').textContent = formatTimer(timerSeconds);
+      highlightCurrentSet();
+      checkExerciseBoundary();
+    }, 1000);
+  }
+  updateDropdownState();
+}
+function checkExerciseBoundary() {
+  // Auto-pause when we hit the end of an exercise time block (not the last one)
+  for (let i = 0; i < exerciseBoundaries.length - 1; i++) {
+    if (timerSeconds === exerciseBoundaries[i]) {
+      // Pause the timer
+      clearInterval(timerInterval); timerRunning = false;
+      const btn = document.getElementById('timerStart');
+      btn.textContent = 'Resume'; btn.className = 'timer-btn start';
+      document.getElementById('timerDisplay').classList.remove('running');
+      updateDropdownState();
+      break;
+    }
+  }
+}
+function resetTimerFn() {
+  clearInterval(timerInterval); timerRunning = false; timerSeconds = 0; lastHighlightedIdx = -1;
+  document.getElementById('timerDisplay').textContent = '0:00';
+  document.getElementById('timerDisplay').classList.remove('running');
+  document.getElementById('timerStart').textContent = 'Start';
+  document.getElementById('timerStart').className = 'timer-btn start';
+  document.querySelectorAll('.set-row.active-set').forEach(r => r.classList.remove('active-set'));
+  updateDropdownState();
+}
+function highlightCurrentSet() {
+  const rows = document.querySelectorAll('.set-row[data-start-sec]');
+  if (!rows.length) return;
+  let activeIdx = -1;
+  rows.forEach((row, i) => {
+    const start = parseInt(row.dataset.startSec), end = parseInt(row.dataset.endSec);
+    if (timerSeconds >= start && timerSeconds < end) activeIdx = i;
+  });
+  if (activeIdx === -1 && rows.length > 0) {
+    const lastStart = parseInt(rows[rows.length - 1].dataset.startSec);
+    if (timerSeconds >= lastStart && timerSeconds <= 3600) activeIdx = rows.length - 1;
+  }
+  if (activeIdx === lastHighlightedIdx) return;
+  lastHighlightedIdx = activeIdx;
+  document.querySelectorAll('.set-row.active-set').forEach(r => r.classList.remove('active-set'));
+  if (activeIdx >= 0) {
+    rows[activeIdx].classList.add('active-set');
+    const rect = rows[activeIdx].getBoundingClientRect();
+    if (rect.top < 150 || rect.bottom > window.innerHeight) {
+      rows[activeIdx].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+}
+
+// --- SET BUILDERS ---
+function build20Main() {
+  return [
+    { label: "Warm-up 1", reps: "12", intervalSec: 120, isBuild: true },
+    { label: "Warm-up 2", reps: "10", intervalSec: 120, isBuild: true },
+    { label: "Warm-up 3", reps: "8", intervalSec: 120, isBuild: true },
+    { label: "Work 1", reps: "3–6", intervalSec: 150, isBuild: false },
+    { label: "Work 2", reps: "3–6", intervalSec: 150, isBuild: false },
+    { label: "Work 3", reps: "3–6", intervalSec: 150, isBuild: false },
+    { label: "Work 4", reps: "3–6", intervalSec: 150, isBuild: false },
+    { label: "Work 5", reps: "3–6", intervalSec: 30, isBuild: false }
+  ];
+}
+function build15Main() {
+  return [
+    { label: "Warm-up 1", reps: "12", intervalSec: 120, isBuild: true },
+    { label: "Warm-up 2", reps: "10", intervalSec: 120, isBuild: true },
+    { label: "Warm-up 3", reps: "8", intervalSec: 120, isBuild: true },
+    { label: "Work 1", reps: "3–6", intervalSec: 150, isBuild: false },
+    { label: "Work 2", reps: "3–6", intervalSec: 150, isBuild: false },
+    { label: "Work 3", reps: "3–6", intervalSec: 150, isBuild: false },
+    { label: "Work 4", reps: "3–6", intervalSec: 30, isBuild: false }
+  ];
+}
+function build15Acc() {
+  return [
+    { label: "Build 1", reps: "12", intervalSec: 120, isBuild: true },
+    { label: "Build 2", reps: "10", intervalSec: 120, isBuild: true },
+    { label: "Work 1", reps: "6–8", intervalSec: 150, isBuild: false },
+    { label: "Work 2", reps: "6–8", intervalSec: 150, isBuild: false },
+    { label: "Work 3", reps: "6–8", intervalSec: 150, isBuild: false },
+    { label: "Work 4", reps: "6–8", intervalSec: 30, isBuild: false }
+  ];
+}
+function build10Acc() {
+  return [
+    { label: "Build 1", reps: "12", intervalSec: 90, isBuild: true },
+    { label: "Build 2", reps: "10", intervalSec: 90, isBuild: true },
+    { label: "Work 1", reps: "6–8", intervalSec: 120, isBuild: false },
+    { label: "Work 2", reps: "6–8", intervalSec: 120, isBuild: false },
+    { label: "Work 3", reps: "6–8", intervalSec: 30, isBuild: false }
+  ];
+}
+function build10Last() {
+  return [
+    { label: "Build 1", reps: "12", intervalSec: 90, isBuild: true },
+    { label: "Build 2", reps: "10", intervalSec: 90, isBuild: true },
+    { label: "Work 1", reps: "6–8", intervalSec: 120, isBuild: false },
+    { label: "Work 2", reps: "6–8", intervalSec: 120, isBuild: false },
+    { label: "Work 3", reps: "6–8", intervalSec: 120, isBuild: false },
+    { label: "Work 4", reps: "6–8", intervalSec: 30, isBuild: false }
+  ];
+}
+function build5Quick() {
+  return [
+    { label: "Set 1", reps: "10", intervalSec: 90, isBuild: false },
+    { label: "Set 2", reps: "10", intervalSec: 90, isBuild: false },
+    { label: "Set 3", reps: "10", intervalSec: 30, isBuild: false }
+  ];
+}
+function build5Last() {
+  return [
+    { label: "Set 1", reps: "10", intervalSec: 90, isBuild: false },
+    { label: "Set 2", reps: "10", intervalSec: 90, isBuild: false },
+    { label: "Set 3", reps: "10", intervalSec: 90, isBuild: false },
+    { label: "Set 4", reps: "10", intervalSec: 30, isBuild: false }
+  ];
+}
+
+// --- PROGRAM ---
+const DEFAULT_VIDEOS = {
+  "Barbell Bench Press": "",
+  "Incline DB Press": "",
+  "Cable Fly": "",
+  "Body Weight Dips": "",
+  "Overhead Tricep Extension": "",
+  "Rope Pushdown": "",
+  "Deadlift": "",
+  "Lat Pulldown": "",
+  "Barbell Row": "",
+  "Reverse Fly": "",
+  "Incline DB Curl": "",
+  "EZ Bar Curl": "",
+  "Hammer Curl": "",
+  "Military Press": "",
+  "Arnold Press": "",
+  "Lateral Raises": "",
+  "Shrugs": "",
+  "Hanging Leg Raise + Russian Twist": "",
+  "Barbell Back Squat": "",
+  "EZ Bar Curl + Skull Crushers": "",
+  "Hammer Curl + Overhead Tricep Ext": "",
+  "Rope Curl + Rope Pushdown": "",
+  "Incline DB Curl + Dips": "",
+  "Preacher Curl + Diamond Push-ups": "",
+  "DB Bench Press + Barbell Row": "",
+  "Military Press + Lat Pulldown": "",
+  "Cable Fly + Reverse Fly": "",
+  "Incline DB Press + Seated Cable Row": "",
+  "Shrugs + Face Pulls": ""
+};
+
+const PROGRAM = [
+  {
+    name: "Day 1 — Chest + Tri", subtitle: "75 min",
+    warmup: "Arm circles, band pull-aparts, light push-ups",
+    cooldown: "Chest doorway stretch, overhead tricep stretch, child's pose",
+    exercises: [
+      { name: "Barbell Bench Press", type: "main", timeBlock: 20, sets: build20Main() },
+      { name: "Incline DB Press", type: "accessory", timeBlock: 15, sets: build15Acc() },
+      { name: "Cable Fly", type: "accessory", timeBlock: 10, sets: build10Acc() },
+      { name: "Body Weight Dips", type: "accessory", timeBlock: 10, sets: build10Acc() },
+      { name: "Overhead Tricep Extension", type: "accessory", timeBlock: 10, sets: build10Acc() },
+      { name: "Rope Pushdown", type: "accessory", timeBlock: 10, isLast: true, sets: build10Last() }
+    ]
+  },
+  {
+    name: "Day 2 — Back + Bi", subtitle: "75 min",
+    warmup: "Band pull-aparts, cat-cow, arm swings",
+    cooldown: "Lat stretch, bicep wall stretch, thoracic rotation",
+    exercises: [
+      { name: "Deadlift", type: "main", timeBlock: 15, sets: build15Main() },
+      { name: "Lat Pulldown", type: "accessory", timeBlock: 15, sets: build15Acc() },
+      { name: "Barbell Row", type: "accessory", timeBlock: 15, sets: build15Acc() },
+      { name: "Reverse Fly", type: "accessory", timeBlock: 5, sets: build5Quick() },
+      { name: "EZ Bar Curl", type: "accessory", timeBlock: 10, sets: build10Acc() },
+      { name: "Hammer Curl", type: "accessory", timeBlock: 10, sets: build10Acc() },
+      { name: "Incline DB Curl", type: "accessory", timeBlock: 5, isLast: true, sets: build5Last() }
+    ]
+  },
+  {
+    name: "Day 3 — Legs + Shldr + Core", subtitle: "75 min",
+    warmup: "Arm circles, hip circles, bodyweight squats",
+    cooldown: "Shoulder stretch, quad stretch, child's pose",
+    exercises: [
+      { name: "Barbell Back Squat", type: "main", timeBlock: 15, sets: build15Main() },
+      { name: "Military Press", type: "main", timeBlock: 15, sets: build15Main() },
+      { name: "Arnold Press", type: "accessory", timeBlock: 15, sets: build15Acc() },
+      { name: "Lateral Raises", type: "accessory", timeBlock: 10, sets: build10Acc() },
+      { name: "Shrugs", type: "accessory", timeBlock: 10, sets: build10Acc() },
+      { name: "Hanging Leg Raise + Russian Twist", type: "superset", timeBlock: 10, isLast: true, sets: build10Last() }
+    ]
+  },
+  {
+    name: "Day 4 — Arms Super", subtitle: "60 min",
+    warmup: "Arm circles, light curls, band pull-aparts",
+    cooldown: "Bicep wall stretch, overhead tricep stretch, wrist circles",
+    exercises: [
+      { name: "EZ Bar Curl + Skull Crushers", type: "superset", timeBlock: 15, sets: build15Acc() },
+      { name: "Hammer Curl + Overhead Tricep Ext", type: "superset", timeBlock: 15, sets: build15Acc() },
+      { name: "Rope Curl + Rope Pushdown", type: "superset", timeBlock: 10, sets: build10Acc() },
+      { name: "Incline DB Curl + Dips", type: "superset", timeBlock: 10, sets: build10Acc() },
+      { name: "Preacher Curl + Diamond Push-ups", type: "superset", timeBlock: 10, isLast: true, sets: build10Last() }
+    ]
+  },
+  {
+    name: "Day 5 — Push/Pull Super", subtitle: "60 min",
+    warmup: "Arm circles, band pull-aparts, light push-ups",
+    cooldown: "Chest doorway stretch, lat stretch, child's pose",
+    exercises: [
+      { name: "DB Bench Press + Barbell Row", type: "superset", timeBlock: 15, sets: build15Acc() },
+      { name: "Military Press + Lat Pulldown", type: "superset", timeBlock: 15, sets: build15Acc() },
+      { name: "Cable Fly + Reverse Fly", type: "superset", timeBlock: 10, sets: build10Acc() },
+      { name: "Incline DB Press + Seated Cable Row", type: "superset", timeBlock: 10, sets: build10Acc() },
+      { name: "Shrugs + Face Pulls", type: "superset", timeBlock: 10, isLast: true, sets: build10Last() }
+    ]
+  }
+];
+
+// --- STATE ---
+let currentWeek = 1, currentDay = 0, data = {};
+
+function loadData() { try { const s = localStorage.getItem('nick_trk_v1'); if (s) data = JSON.parse(s); } catch(e) { data = {}; } }
+function saveData() { localStorage.setItem('nick_trk_v1', JSON.stringify(data)); }
+function ky(w, d, ex, si, f) { return `${w}_${d}_${ex}_${si}_${f}`; }
+function gv(key) { return data[key] || ''; }
+function sv(key, v) { data[key] = v; saveData(); }
+
+// --- ORDER ---
+function getOrder() {
+  const k = `order_${currentWeek}_${currentDay}`;
+  const saved = data[k];
+  if (saved) { try { return JSON.parse(saved); } catch(e) {} }
+  return PROGRAM[currentDay].exercises.map((_, i) => i);
+}
+function setOrder(order) { sv(`order_${currentWeek}_${currentDay}`, JSON.stringify(order)); }
+function resetOrder() { delete data[`order_${currentWeek}_${currentDay}`]; saveData(); }
+
+function isSetComplete(w, d, exName, setIdx) {
+  return gv(ky(w, d, exName, setIdx, 'wt')).trim() !== '' && gv(ky(w, d, exName, setIdx, 'reps')).trim() !== '';
+}
+function isExerciseDone(w, d, exIdx) {
+  const ex = PROGRAM[d].exercises[exIdx];
+  return ex.sets.every((s, i) => isSetComplete(w, d, ex.name, i));
+}
+function getAllSetPairs(day) {
+  const pairs = [];
+  PROGRAM[day].exercises.forEach(ex => { ex.sets.forEach((s, i) => pairs.push({ exName: ex.name, setIdx: i })); });
+  return pairs;
+}
+function isDayComplete(w, d) {
+  return PROGRAM[d].exercises.every((_, i) => isExerciseDone(w, d, i));
+}
+function isWeekComplete(w) { return [0,1,2,3,4].every(d => isDayComplete(w, d)); }
+function weekHasData(w) { const p = `${w}_`; return Object.keys(data).some(k => k.startsWith(p) && data[k]); }
+function countCompleteDays() {
+  let c = 0;
+  for (let w = 1; w <= 12; w++) for (let d = 0; d < 5; d++) if (isDayComplete(w, d)) c++;
+  return c;
+}
+function updateProgress() {
+  const done = countCompleteDays();
+  document.getElementById('progressBar').style.width = Math.round((done/60)*100) + '%';
+  document.getElementById('progressLabel').textContent = `${done} / 60 workouts completed`;
+}
+
+// --- CURRENT EXERCISE ---
+function getCurrentExIdx() {
+  const order = getOrder();
+  for (const i of order) {
+    if (!isExerciseDone(currentWeek, currentDay, i)) return i;
+  }
+  return order[order.length - 1];
+}
+
+function getQueuedNext() {
+  const k = `next_${currentWeek}_${currentDay}`;
+  const saved = data[k];
+  if (saved !== undefined && saved !== '') return parseInt(saved);
+  return null;
+}
+function setQueuedNext(exIdx) {
+  sv(`next_${currentWeek}_${currentDay}`, exIdx !== null ? String(exIdx) : '');
+}
+
+function getRemainingAfterCurrent() {
+  const order = getOrder();
+  const cur = getCurrentExIdx();
+  const remaining = order.filter(i => !isExerciseDone(currentWeek, currentDay, i) && i !== cur);
+  remaining.sort((a, b) => a - b); // default program order
+  return remaining;
+}
+
+function applyQueuedNext() {
+  // Called when current exercise completes — promote queued next to current
+  const queued = getQueuedNext();
+  if (queued !== null && !isExerciseDone(currentWeek, currentDay, queued)) {
+    const order = getOrder();
+    const done = order.filter(i => isExerciseDone(currentWeek, currentDay, i));
+    const remaining = order.filter(i => !isExerciseDone(currentWeek, currentDay, i));
+    const otherRemaining = remaining.filter(i => i !== queued);
+    otherRemaining.sort((a, b) => a - b);
+    setOrder([...done, queued, ...otherRemaining]);
+  }
+  setQueuedNext(null);
+}
+
+function onExerciseSelect() {
+  if (timerRunning) return;
+  const sel = document.getElementById('exerciseSelect');
+  const chosen = parseInt(sel.value);
+  if (isNaN(chosen)) return;
+
+  const order = getOrder();
+  const done = order.filter(i => isExerciseDone(currentWeek, currentDay, i));
+  const remaining = order.filter(i => !isExerciseDone(currentWeek, currentDay, i));
+  const otherRemaining = remaining.filter(i => i !== chosen);
+  otherRemaining.sort((a, b) => a - b);
+
+  setOrder([...done, chosen, ...otherRemaining]);
+  setQueuedNext(null);
+  lastHighlightedIdx = -1;
+  render();
+}
+
+function onNextSelect() {
+  const sel = document.getElementById('nextSelect');
+  const chosen = parseInt(sel.value);
+  if (isNaN(chosen)) return;
+
+  setQueuedNext(chosen);
+  // Reorder so queued is second in remaining
+  const order = getOrder();
+  const done = order.filter(i => isExerciseDone(currentWeek, currentDay, i));
+  const cur = getCurrentExIdx();
+  const remaining = order.filter(i => !isExerciseDone(currentWeek, currentDay, i));
+  const otherRemaining = remaining.filter(i => i !== cur && i !== chosen);
+  otherRemaining.sort((a, b) => a - b);
+  setOrder([...done, cur, chosen, ...otherRemaining]);
+  lastHighlightedIdx = -1;
+  render();
+}
+
+function updateDropdownState() {
+  const sel = document.getElementById('exerciseSelect');
+  const nextRow = document.getElementById('nextRow');
+
+  sel.disabled = timerRunning;
+
+  const remaining = getRemainingAfterCurrent();
+
+  // Show next row when there are exercises to queue
+  if (remaining.length > 0 && !isDayComplete(currentWeek, currentDay)) {
+    nextRow.classList.add('visible');
+  } else {
+    nextRow.classList.remove('visible');
+  }
+}
+
+function renderDropdown() {
+  const sel = document.getElementById('exerciseSelect');
+  const nextSel = document.getElementById('nextSelect');
+  const counter = document.getElementById('exCounter');
+  const prog = PROGRAM[currentDay];
+  const order = getOrder();
+
+  const allRemaining = order.filter(i => !isExerciseDone(currentWeek, currentDay, i)).sort((a, b) => a - b);
+  const doneCount = prog.exercises.length - allRemaining.length;
+  const cur = getCurrentExIdx();
+
+  // Now dropdown
+  sel.innerHTML = '';
+  allRemaining.forEach(i => {
+    const ex = prog.exercises[i];
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `${ex.name} (${ex.timeBlock} min)`;
+    sel.appendChild(opt);
+  });
+  if (allRemaining.length === 0) {
+    const opt = document.createElement('option');
+    opt.textContent = 'All exercises complete ✓';
+    sel.appendChild(opt);
+    sel.disabled = true;
+  }
+  sel.value = cur;
+
+  // Next dropdown — default to next in program order
+  const afterCurrent = getRemainingAfterCurrent();
+  nextSel.innerHTML = '';
+  afterCurrent.forEach(i => {
+    const ex = prog.exercises[i];
+    const opt = document.createElement('option');
+    opt.value = i;
+    opt.textContent = `${ex.name} (${ex.timeBlock} min)`;
+    nextSel.appendChild(opt);
+  });
+  if (afterCurrent.length === 0) {
+    const opt = document.createElement('option');
+    opt.textContent = 'Last exercise';
+    nextSel.appendChild(opt);
+    nextSel.disabled = true;
+  }
+
+  // If user queued something, select it; otherwise default to first (program order)
+  const queued = getQueuedNext();
+  if (queued !== null && afterCurrent.includes(queued)) {
+    nextSel.value = queued;
+  } else if (afterCurrent.length > 0) {
+    nextSel.value = afterCurrent[0]; // default program order
+  }
+
+  counter.textContent = `${doneCount}/${prog.exercises.length}`;
+  updateDropdownState();
+}
+
+function renderWeekNav() {
+  const nav = document.getElementById('weekNav'); nav.innerHTML = '';
+  for (let w = 1; w <= 12; w++) {
+    const btn = document.createElement('button'); btn.className = 'week-btn';
+    btn.textContent = `Wk ${w}`;
+    if (w === currentWeek) btn.classList.add('active');
+    if (isWeekComplete(w)) btn.classList.add('all-complete');
+    else if (weekHasData(w)) btn.classList.add('has-data');
+    btn.onclick = () => { currentWeek = w; render(); };
+    nav.appendChild(btn);
+  }
+}
+function renderDayTabs() {
+  const tabs = document.getElementById('dayTabs'); tabs.innerHTML = '';
+  const shortNames = ['Chest/Tri', 'Back/Bi', 'Legs/Shldr', 'Arms SS', 'Push/Pull SS'];
+  PROGRAM.forEach((day, i) => {
+    const btn = document.createElement('button'); btn.className = 'day-tab';
+    if (i === currentDay) btn.classList.add('active');
+    if (isDayComplete(currentWeek, i)) btn.classList.add('day-complete');
+    btn.innerHTML = `${shortNames[i]}<span>${day.subtitle}</span><div class="check">✓ Complete</div>`;
+    btn.onclick = () => { currentDay = i; render(); };
+    tabs.appendChild(btn);
+  });
+}
+
+function formatTime(totalSeconds) {
+  const mins = Math.floor(totalSeconds / 60), secs = totalSeconds % 60;
+  if (secs === 0) return `${mins}:00`;
+  return `${mins}:${secs < 10 ? '0' + secs : secs}`;
+}
+function getPrevWeekData(exName, setIdx) {
+  if (currentWeek <= 1) return null;
+  const wt = gv(ky(currentWeek - 1, currentDay, exName, setIdx, 'wt'));
+  const reps = gv(ky(currentWeek - 1, currentDay, exName, setIdx, 'reps'));
+  if (!wt && !reps) return null;
+  return { wt, reps };
+}
+function checkAutoComplete(row, exName, setIdx) {
+  if (isSetComplete(currentWeek, currentDay, exName, setIdx)) row.classList.add('completed');
+  else row.classList.remove('completed');
+  // Check if the current exercise just completed — promote queued next
+  const cur = getCurrentExIdx();
+  const curEx = PROGRAM[currentDay].exercises[cur];
+  if (curEx && curEx.name === exName && isExerciseDone(currentWeek, currentDay, cur)) {
+    applyQueuedNext();
+    lastHighlightedIdx = -1;
+    render();
+    return;
+  }
+  updateProgress(); renderWeekNav(); renderDayTabs(); renderDropdown();
+}
+
+// --- VIDEO ---
+function getVideoUrl(exName) {
+  const custom = gv(`video_${exName}`);
+  if (custom) return custom;
+  return DEFAULT_VIDEOS[exName] || '';
+}
+function setVideoUrl(exName, url) {
+  sv(`video_${exName}`, url);
+}
+function saveVideoUrl(exName, url) {
+  setVideoUrl(exName, url.trim());
+  render();
+}
+function youtubeId(url) {
+  if (!url) return null;
+  let id = null;
+  const short = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (short) id = short[1];
+  const long = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+  if (long) id = long[1];
+  const embed = url.match(/embed\/([a-zA-Z0-9_-]{11})/);
+  if (embed) id = embed[1];
+  return id;
+}
+
+function makeSetRow(cssClass, labelHtml, startSec, endSec, repsTarget, exName, setIdx) {
+  const w = currentWeek, d = currentDay;
+  const kWt = ky(w, d, exName, setIdx, 'wt'), kReps = ky(w, d, exName, setIdx, 'reps');
+  const complete = isSetComplete(w, d, exName, setIdx);
+  const row = document.createElement('div');
+  row.className = `set-row ${cssClass}`;
+  row.dataset.startSec = startSec; row.dataset.endSec = endSec;
+  if (complete) row.classList.add('completed');
+  const prev = getPrevWeekData(exName, setIdx);
+  const prevHtml = prev ? `<span class="pw-val">${prev.wt} × ${prev.reps}</span>` : `<span class="pw-none">—</span>`;
+  row.innerHTML = `
+    <div class="set-label">${labelHtml}</div>
+    <input type="text" inputmode="decimal" placeholder="Weight" value="${gv(kWt)}">
+    <input type="text" inputmode="numeric" placeholder="Reps (${repsTarget})" value="${gv(kReps)}">
+    <div class="interval-tag">${formatTime(startSec)}</div>
+    <div class="prev-week">${prevHtml}</div>
+  `;
+  const inputs = row.querySelectorAll('input');
+  inputs[0].oninput = e => { sv(kWt, e.target.value); checkAutoComplete(row, exName, setIdx); };
+  inputs[1].oninput = e => { sv(kReps, e.target.value); checkAutoComplete(row, exName, setIdx); };
+  return row;
+}
+
+function renderWorkout() {
+  lastHighlightedIdx = -1;
+  const container = document.getElementById('workoutContent'); container.innerHTML = '';
+  const prog = PROGRAM[currentDay];
+  const w = currentWeek, d = currentDay;
+  const order = getOrder();
+  const orderedExercises = order.map(i => ({ ...prog.exercises[i], origIdx: i }));
+  const curExIdx = getCurrentExIdx();
+
+  // Timeline
+  const timeline = document.createElement('div'); timeline.className = 'timeline';
+  const totalMin = orderedExercises.reduce((sum, ex) => sum + ex.timeBlock, 0);
+  orderedExercises.forEach(ex => {
+    const block = document.createElement('div');
+    block.className = `timeline-block ${ex.type === 'main' ? 'main' : ex.type === 'superset' ? 'superset' : 'accessory'}`;
+    block.style.width = ((ex.timeBlock / totalMin) * 100) + '%';
+    timeline.appendChild(block);
+  });
+  container.appendChild(timeline);
+  const ticks = document.createElement('div'); ticks.className = 'timeline-ticks';
+  let cum = 0;
+  const t0 = document.createElement('span'); t0.textContent = '0'; t0.style.left = '0%'; ticks.appendChild(t0);
+  orderedExercises.forEach(ex => {
+    cum += ex.timeBlock;
+    const sp = document.createElement('span'); sp.textContent = cum;
+    sp.style.left = ((cum / totalMin) * 100) + '%'; ticks.appendChild(sp);
+  });
+  container.appendChild(ticks);
+
+  const keyDiv = document.createElement('div'); keyDiv.className = 'interval-key';
+  keyDiv.innerHTML = `
+    <div class="ik-item"><div class="ik-dot" style="background:var(--accent-3)"></div>Main lift</div>
+    <div class="ik-item"><div class="ik-dot" style="background:var(--accent-4)"></div>Accessory</div>
+    <div class="ik-item"><div class="ik-dot" style="background:var(--accent-2)"></div>Superset</div>
+  `;
+  container.appendChild(keyDiv);
+
+  // Warmup
+  const wuLabel = document.createElement('div'); wuLabel.className = 'section-label';
+  wuLabel.textContent = 'Warm-up (before the clock)';
+  container.appendChild(wuLabel);
+  const wuCard = document.createElement('div'); wuCard.className = 'note-card';
+  wuCard.innerHTML = `<strong>5 min:</strong> ${prog.warmup}`;
+  container.appendChild(wuCard);
+
+  // Exercises
+  let clockSec = 0;
+  exerciseBoundaries = [];
+  orderedExercises.forEach((ex, orderPos) => {
+    const exDone = isExerciseDone(w, d, ex.origIdx);
+    const isCurrent = ex.origIdx === curExIdx && !exDone;
+    const isLastInOrder = orderPos === orderedExercises.length - 1;
+
+    const card = document.createElement('div'); card.className = 'exercise-card';
+    if (exDone) card.classList.add('ex-done');
+    if (isCurrent) card.classList.add('ex-active');
+
+    const header = document.createElement('div');
+    const headerClass = ex.type === 'main' ? 'header-main' : ex.type === 'superset' ? 'header-super' : 'header-acc';
+    header.className = `exercise-header ${headerClass}`;
+    const badgeClass = ex.type === 'main' ? 'badge-main' : ex.type === 'superset' ? 'badge-superset' : 'badge-accessory';
+    const typeLabel = ex.type === 'main' ? 'MAIN LIFT' : ex.type === 'superset' ? 'SUPERSET' : 'ACCESSORY';
+    const startMin = Math.floor(clockSec / 60);
+    let badgesHtml = `<span class="badge ${badgeClass}">${typeLabel}</span><span class="badge badge-time">@ ${startMin} min</span>`;
+    if (exDone) badgesHtml += `<span class="badge badge-done">✓ DONE</span>`;
+    else if (isCurrent) badgesHtml += `<span class="badge badge-current">▸ CURRENT</span>`;
+    header.innerHTML = `<h3>${ex.name}</h3><div class="badges">${badgesHtml}</div>`;
+    card.appendChild(header);
+
+    // Previous week notes
+    const prevNotesKey = w > 1 ? ky(w - 1, d, ex.name, 'notes', 'txt') : null;
+    const prevNotes = prevNotesKey ? gv(prevNotesKey) : '';
+    if (prevNotes) {
+      const pn = document.createElement('div');
+      pn.className = 'prev-notes';
+      pn.innerHTML = `<div class="prev-notes-label">Last week</div>${prevNotes}`;
+      card.appendChild(pn);
+    }
+
+    const colHeaders = document.createElement('div'); colHeaders.className = 'col-headers';
+    colHeaders.innerHTML = `<span>Set</span><span>Weight</span><span>Reps</span><span>Time</span><span>Prev Wk</span>`;
+    card.appendChild(colHeaders);
+
+    let exSets = ex.sets;
+    if (isLastInOrder && ex.timeBlock === 10 && exSets.length === 5) exSets = build10Last();
+    if (isLastInOrder && ex.timeBlock === 5 && exSets.length === 3) exSets = build5Last();
+
+    let exClock = clockSec;
+    exSets.forEach((s, i) => {
+      let css;
+      if (ex.type === 'main') css = s.isBuild ? 'warmup-row' : 'work-row';
+      else if (ex.type === 'superset') css = s.isBuild ? 'super-build' : 'super-work';
+      else css = s.isBuild ? 'acc-build' : 'acc-work';
+      const labelHtml = `${s.label}<span class="target-reps">${s.reps} reps</span>`;
+      card.appendChild(makeSetRow(css, labelHtml, exClock, exClock + s.intervalSec, s.reps, ex.name, i));
+      exClock += s.intervalSec;
+    });
+
+    const blockEndSec = clockSec + (ex.timeBlock * 60);
+    const bufferSec = blockEndSec - exClock;
+    if (bufferSec > 0 && !isLastInOrder) {
+      const bufferRow = document.createElement('div'); bufferRow.className = 'buffer-row';
+      const bufMin = bufferSec / 60;
+      const bufLabel = bufMin === Math.floor(bufMin) ? `${bufMin} min` : `${bufMin.toFixed(1)} min`;
+      bufferRow.innerHTML = `<span class="buffer-label">${bufLabel} buffer</span><span>Set up next exercise</span>`;
+      card.appendChild(bufferRow);
+    }
+
+    // Video
+    const vidUrl = getVideoUrl(ex.name);
+    const vidId = youtubeId(vidUrl);
+    const vidToggle = document.createElement('div');
+    vidToggle.className = 'video-toggle';
+    vidToggle.innerHTML = `<span class="vt-icon">▸</span><span class="vt-label">Form Guide</span><span class="vt-edit">tap to ${vidId ? 'view' : 'add'}</span>`;
+    card.appendChild(vidToggle);
+
+    const vidBody = document.createElement('div');
+    vidBody.className = 'video-body';
+    const escapedName = ex.name.replace(/'/g, "\\'");
+    if (vidId) {
+      vidBody.innerHTML = `
+        <a class="video-wrapper" href="https://www.youtube.com/watch?v=${vidId}" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/${vidId}/hqdefault.jpg" alt="Video thumbnail">
+          <div class="play-btn"></div>
+        </a>
+        <div class="video-url-row">
+          <input type="text" value="${vidUrl}" placeholder="Paste YouTube URL...">
+          <button onclick="this.closest('.video-body').querySelector('input').value && saveVideoUrl('${escapedName}', this.closest('.video-body').querySelector('input').value)">Save</button>
+        </div>
+      `;
+    } else {
+      vidBody.innerHTML = `
+        <div class="no-video">No video added yet</div>
+        <div class="video-url-row">
+          <input type="text" value="" placeholder="Paste YouTube URL...">
+          <button onclick="this.closest('.video-body').querySelector('input').value && saveVideoUrl('${escapedName}', this.closest('.video-body').querySelector('input').value)">Save</button>
+        </div>
+      `;
+    }
+    card.appendChild(vidBody);
+
+    vidToggle.onclick = () => {
+      vidToggle.classList.toggle('open');
+      vidBody.classList.toggle('open');
+    };
+
+    // Notes
+    const notesKey = ky(w, d, ex.name, 'notes', 'txt');
+    const notesDiv = document.createElement('div');
+    notesDiv.className = 'exercise-notes';
+    notesDiv.innerHTML = `<textarea placeholder="Notes..." rows="1">${gv(notesKey)}</textarea>`;
+    notesDiv.querySelector('textarea').oninput = e => sv(notesKey, e.target.value);
+    card.appendChild(notesDiv);
+
+    container.appendChild(card);
+    clockSec = blockEndSec;
+    exerciseBoundaries.push(clockSec);
+  });
+
+  // Cooldown
+  const cdLabel = document.createElement('div'); cdLabel.className = 'section-label';
+  cdLabel.textContent = 'Cooldown (after the clock)';
+  container.appendChild(cdLabel);
+  const cdCard = document.createElement('div'); cdCard.className = 'note-card';
+  cdCard.innerHTML = `<strong>5 min:</strong> ${prog.cooldown}`;
+  container.appendChild(cdCard);
+
+  const resetRow = document.createElement('div'); resetRow.className = 'reset-row';
+  resetRow.innerHTML = `
+    <button class="reset-order-btn" onclick="resetOrderFn()">Reset Order</button>
+    <button class="reset-btn" onclick="resetDay()">Reset Day</button>
+  `;
+  container.appendChild(resetRow);
+
+  if (timerRunning) highlightCurrentSet();
+}
+
+function resetOrderFn() {
+  if (!confirm('Reset exercise order to default?')) return;
+  resetOrder(); setQueuedNext(null); saveData(); render();
+}
+function resetDay() {
+  if (!confirm(`Reset all data for Week ${currentWeek}, ${PROGRAM[currentDay].name}?`)) return;
+  const prefix = `${currentWeek}_${currentDay}_`;
+  Object.keys(data).forEach(k => { if (k.startsWith(prefix)) delete data[k]; });
+  resetOrder(); setQueuedNext(null); saveData(); render();
+}
+function render() { renderWeekNav(); renderDayTabs(); renderDropdown(); renderWorkout(); updateProgress(); }
+
+// Keep fixed bars visible when mobile keyboard opens
+function handleViewportResize() {
+  const timerBar = document.querySelector('.timer-bar');
+  const exBar = document.getElementById('exerciseBar');
+  if (window.visualViewport) {
+    const offset = window.visualViewport.offsetTop;
+    timerBar.style.transform = `translateY(${offset}px)`;
+    exBar.style.transform = `translateY(${offset}px)`;
+  }
+}
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', handleViewportResize);
+  window.visualViewport.addEventListener('scroll', handleViewportResize);
+}
+
+loadData(); render();
+</script>
+</body>
+</html>
